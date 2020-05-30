@@ -7,6 +7,8 @@ class Game {
     this.bg = new Background(ctx)
     this.helicopter = new Helicopter(ctx)
     this.obstacles = []
+    this.bullets = this.helicopter.weapon.bullets
+    console.log(this.bullets);
 
   }
 
@@ -59,14 +61,26 @@ class Game {
     } 
     
     const heli = this.helicopter
-    this.obstacles.forEach(obstacle => {
 
+
+    this.obstacles.forEach(obstacle => {
     const obstX = obstacle.x < (heli.x + heli.w) && (obstacle.x + obstacle.w) > heli.x;
     const obstY = (obstacle.y + obstacle.h) > heli.y && obstacle.y < (heli.y + heli.h);
+
     if (obstX && obstY) {
-        this._gameOver();
+      this._gameOver();
+    }
+    this.bullets.forEach(bullet => { 
+      const bulletX = obstacle.x < (bullet.x + bullet.r) && (obstacle.x + obstacle.r) > bullet.x;
+      
+
+      if (bulletX) {
+        this.obstacles = this.obstacles.filter(obs => obs !== obstacle)
       }
     })
+    })
+
+
     // TODO: iterate obstacles. check colX and colY
   }
 
