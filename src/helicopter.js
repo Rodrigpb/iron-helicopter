@@ -70,12 +70,40 @@ class Helicopter {
       // TODO
       switch (e.keyCode) {
         case UP:
-          this._move()
+          this.y -= 2;
+          this.vy -= 2
+          break
+        case RIGHT:
+          this.x += 1
+          this.vx += 1
+          break
+        case LEFT :
+          this.x -= 1
+          this.vx -= 1
+          break
+        case SPACE :
+          this.weapon.shoot()
+          break;
+
       }
     })
 
     document.addEventListener('keyup', e => {
-      // TODO
+      switch (e.keyCode) {
+        case UP:
+          this.y -= 0;
+          this.vy -= 0
+          break
+        case RIGHT:
+          this.x += 0
+          this.vx += 0
+          break
+        case LEFT :
+          this.x -= 0
+          this.vx -= 0
+          break
+
+      }
     })
   }
 /**   _switchAction (key, action) {
