@@ -5,6 +5,7 @@ class Helicopter {
 
     this.x = 100
     this.y = 0
+    this.y0 = this.ctx.canvas.height - this.w
 
     this.w = 100
     this.h = 40
@@ -31,6 +32,7 @@ class Helicopter {
     // TODO: draw helicopter image
     this.ctx.drawImage(
       this.img,
+      0,
       this.img.frameIndex * this.img.height / this.img.frames,
       this.img.width,
       this.img.height / this.img.frames,
@@ -48,7 +50,19 @@ class Helicopter {
   }
 
   move() {
-    // TODO: move
+    this.ay = 
+    this.vx += this.ax;
+    this.vy += this.ay;
+    this.vy += this.g;
+    this.x += this.vx;
+    this.y += this.vy;
+
+    if(this.y >= this.ctx.canvas.height) {
+      this.vy = 0;
+      this.y = this.y0;
+
+      
+    }
   }
 
   _setListeners() {
