@@ -54,7 +54,16 @@ class Game {
   }
 
   _checkCollisions() {
-    // TODO: check helicopter on floor?
+    if (this.helicopter.isFloor()) {
+      this._gameOver();
+    }
+
+    this.obstacles.forEach(obstacle => {
+      if(this.helicopter.x + this.helicopter.w >= obstacle.x ) {
+
+      }
+      
+    })
     // TODO: iterate obstacles. check colX and colY
   }
 

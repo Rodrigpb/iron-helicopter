@@ -6,7 +6,7 @@ class Background {
     this.x = 0
     this.y = 0
 
-    this.vx = -2
+    this.vx = -1.5
 
     this.img = new Image()
     this.img.src = "https://image.freepik.com/free-vector/sky-day-game-background_7814-306.jpg"

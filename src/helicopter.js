@@ -47,7 +47,7 @@ class Helicopter {
 
   isFloor() {
     // TODO: check if floor
-    return this.y + this.h >= this.ctx.canvas.height * 0.95
+    return this.y >= this.ctx.canvas.height
 
   }
 

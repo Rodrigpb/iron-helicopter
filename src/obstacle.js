@@ -6,7 +6,7 @@ class Obstacle {
     this.y = Math.random() > 0.5 ? 0 - this.dist : this.dist
     this.w = Math.random() * 40 + 50
     this.h = this.ctx.canvas.height
-    this.vx = -3
+    this.vx = -1.5
   }
 
   draw() {
