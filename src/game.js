@@ -42,7 +42,9 @@ class Game {
   }
 
   _move() {
-    // TODO: move everything
+    this.bg.move()
+    this.helicopter.move()
+    this.obstacles.forEach(obstacle => obstacle.move())
   }
 
   _checkCollisions() {

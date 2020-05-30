@@ -32,6 +32,12 @@ class Background {
   }
 
   move() {
+    console.log('entra')
+    this.x += this.vx
+
+    if (this.x + this.w <= 0) {
+      this.x = 0;
+    }
     // TODO: move background
     // TODO: restart position if out of canvas
   }
