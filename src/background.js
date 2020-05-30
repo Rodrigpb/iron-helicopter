@@ -32,7 +32,7 @@ class Background {
   }
 
   move() {
-    console.log('entra')
+    
     this.x += this.vx
 
     if (this.x + this.w <= 0) {

@@ -11,14 +11,14 @@ class Game {
 
   start() {
     this.intervalId =  setInterval(() => {
-      this._gameOver()
+      //this._gameOver()
       this._clear()
       this._draw()
       this._move()
       this._addObstacle()
       this._checkCollisions()
       this._clearObstacles()
-    }, FRAMES);    
+    }, 1000 / 60);    
     // TODO: loop. clear, draw, move, addObstacle, checkCollisions, clearObstacles
   }
 
