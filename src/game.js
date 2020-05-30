@@ -54,15 +54,18 @@ class Game {
   }
 
   _checkCollisions() {
-    if (this.helicopter.isFloor()) {
+   if (this.helicopter.isFloor()) {
       this._gameOver();
-    }
-
+    } 
+    
+    const heli = this.helicopter
     this.obstacles.forEach(obstacle => {
-      if(this.helicopter.x + this.helicopter.w >= obstacle.x ) {
 
+    const obstX = obstacle.x < (heli.x + heli.w) && (obstacle.x + obstacle.w) > heli.x;
+    const obstY = (obstacle.y + obstacle.h) > heli.y && obstacle.y < (heli.y + heli.h);
+    if (obstX && obstY) {
+        this._gameOver();
       }
-      
     })
     // TODO: iterate obstacles. check colX and colY
   }

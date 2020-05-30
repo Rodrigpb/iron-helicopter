@@ -41,13 +41,14 @@ class Helicopter {
       this.w,
       this.h
     )
-
+    
+    this._animate()
     this.weapon.draw()
   }
 
   isFloor() {
     // TODO: check if floor
-    return this.y >= this.ctx.canvas.height
+    return (this.y + this.h/2 >= this.ctx.canvas.height) || (this.y < 0) || (this.x < 0) || (this.x + this.w/2 > this.ctx.canvas.width)
 
   }
 
@@ -58,6 +59,9 @@ class Helicopter {
     this.vy += this.g;
     this.x += this.vx;
     this.y += this.vy;
+
+    this.weapon.move()
+
 
     /** if(this.y + this.h >= this.ctx.canvas.height) {
       this.vy = 0;
@@ -119,4 +123,17 @@ class Helicopter {
         break;
     }
   }*/
+
+  _animate () {
+    this.tick++;
+
+    if (this.tick > 4) {
+      this.tick = 0
+      this.img.frameIndex++
+    }
+
+    if (this.img.frameIndex >= this.img.frames) {
+      this.img.frameIndex = 0
+    }
+  }
 }
