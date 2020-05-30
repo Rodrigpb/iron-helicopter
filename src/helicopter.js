@@ -47,31 +47,42 @@ class Helicopter {
 
   isFloor() {
     // TODO: check if floor
+    return this.y + this.h >= this.ctx.canvas.height * 0.95
+
   }
 
   move() {
-    this.ay = 
+    
     this.vx += this.ax;
     this.vy += this.ay;
     this.vy += this.g;
     this.x += this.vx;
     this.y += this.vy;
 
-    if(this.y >= this.ctx.canvas.height) {
+    /** if(this.y + this.h >= this.ctx.canvas.height) {
       this.vy = 0;
       this.y = this.y0;
-
-      
-    }
+    }**/
   }
 
   _setListeners() {
     document.addEventListener('keydown', e => {
       // TODO
+      switch (e.keyCode) {
+        case UP:
+          this._move()
+      }
     })
 
     document.addEventListener('keyup', e => {
       // TODO
     })
   }
+/**   _switchAction (key, action) {
+    switch (key) {
+      case UP:
+        this._move(action)
+        break;
+    }
+  }*/
 }
