@@ -2,3 +2,5 @@ UP = 38
 RIGHT = 39
 LEFT = 37
 SPACE = 32
+
+const FRAMES = 1000 / 60;
