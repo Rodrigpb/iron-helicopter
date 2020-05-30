@@ -70,19 +70,23 @@ class Helicopter {
       // TODO
       switch (e.keyCode) {
         case UP:
-          this.y -= 2;
-          this.vy -= 2
+          this.y -= 0.5;
+          this.vy -= 0.5
+          //this.ay -= 0.5
           break
         case RIGHT:
-          this.x += 1
-          this.vx += 1
+          this.x += 0.3
+          this.vx += 0.3
+          this.ay = 0
           break
         case LEFT :
-          this.x -= 1
-          this.vx -= 1
+          this.x -= 0.3
+          this.vx -= 0.3
+          this.ay = 0
           break
         case SPACE :
           this.weapon.shoot()
+          this.ay = 0
           break;
 
       }
@@ -102,7 +106,9 @@ class Helicopter {
           this.x -= 0
           this.vx -= 0
           break
-
+          case SPACE :
+            this.weapon.move()
+            break;
       }
     })
   }
