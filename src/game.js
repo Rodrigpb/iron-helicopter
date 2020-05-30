@@ -7,6 +7,7 @@ class Game {
     this.bg = new Background(ctx)
     this.helicopter = new Helicopter(ctx)
     this.obstacles = []
+
   }
 
   start() {
@@ -18,16 +19,21 @@ class Game {
       this._addObstacle()
       this._checkCollisions()
       this._clearObstacles()
+      this.tick++
+      if (this.tick >= 10000) {
+        this.tick = 0
+      }
     }, 1000 / 60);    
     // TODO: loop. clear, draw, move, addObstacle, checkCollisions, clearObstacles
   }
 
   _clearObstacles() {
-    // TODO: filter only visible obstacles (call o.isVisible())
+    this.obstacles = this.obstacles.filter(o => o.isVisible())
   }
 
   _addObstacle() {
-    // TODO: add new Obstacle every 100 ticks
+    if (this.tick % 100) return
+    this.obstacles.push(new Obstacle(this.ctx))
   }
 
   _clear() {
