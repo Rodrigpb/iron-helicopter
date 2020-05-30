@@ -11,10 +11,13 @@ class Game {
 
   start() {
     this.intervalId =  setInterval(() => {
-      this._clear
-      this._draw
-      this._move
-      this._checkCollisions
+      this._gameOver()
+      this._clear()
+      this._draw()
+      this._move()
+      this._addObstacle()
+      this._checkCollisions()
+      this._clearObstacles()
     }, FRAMES);    
     // TODO: loop. clear, draw, move, addObstacle, checkCollisions, clearObstacles
   }
@@ -33,6 +36,9 @@ class Game {
 
   _draw() {
     // TODO: draw everything
+    this.bg.draw()
+    this.helicopter.draw()
+    this.obstacles.forEach(obstacle => obstacle.draw())
   }
 
   _move() {
